@@ -1,0 +1,128 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+
+input:focus{
+    outline: none;
+}
+
+.content{
+    padding: 30px;
+}
+
+.camera-frame{
+    width: 100%;
+    height: 100%;
+}
+
+.bottom{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.data-wrapper{
+    height: 56px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+}
+
+.data-wrapper a{
+    text-align: left;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.data-wrapper input{
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: inherit;
+    font-weight: inherit;
+    border: none;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.top p{
+    font-size: 26px;
+    margin: 0;
+}
+
+.upload-btn{
+    height: 56px;
+    width: 56px;
+    min-width: 56px;
+    border-radius: 20px;
+    border: 3px solid white;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-btn:hover{
+    opacity: .5;
+    transition: ease-in .3s;
+}
+
+.download-btn{
+    height: 56px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.download-btn span{
+    display: flex;
+    align-items: center;
+}
+
+.output{
+    height: 390px;
+}
+
+.copy-btn{
+    height: 56px;
+    width: 56px;
+    min-width: 56px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0;
+    cursor: pointer;
+}
+
+.copy-btn:hover, .download-btn:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: ease-in .3s;
+}
