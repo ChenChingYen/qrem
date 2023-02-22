@@ -3,22 +3,49 @@ import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 import './styles.css';
 
-function QRScanner(){
+function QRScanner({onFileSelect}){
     const [data, setData] = useState('');
     const copyText = () => {
         navigator.clipboard.writeText(data);
     }
+    // Upload Modal
+    const [modal, setModal] = useState(false);
+    const toggleModal = () => {
+        setModal(!modal);
+    }
+    const handleFileInput = (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        setModal(!modal);
+    }
     return (
         <>
+        {modal&&
+        <div className="modal">
+            <div className="overlay">
+                <div className="modal-header">
+                    <span>Upload Image</span>
+                    <button className="close-btn" onClick={toggleModal}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M13 13L1 1M13 1L1 13" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div className="modal-content">
+                    <input type='file' accept="image/*" name='uploaded-image' onChange={handleFileInput}/>
+                </div>
+                <p>Bruh, I don't know which react library can be used to read QR code from images. I have accepted fate. Whatever</p>
+            </div>
+        </div>
+        }
         <div className='top'>
             <p>QREM ENGINE V1.2</p>
             <div>
-                <button className='upload-btn'>
+                <button className='upload-btn' onClick={toggleModal}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
                         <path d="M11 14.3333L11 7.83334M11 7.83334L7.75 10M11 7.83334L14.25 10M1.25 3.50001V15.2C1.25 16.4135 1.25 17.0202 1.48615 17.4836C1.69388 17.8913 2.0251 18.2228 2.43278 18.4305C2.89626 18.6666 3.50343 18.6667 4.71688 18.6667H17.2835C18.497 18.6667 19.1033 18.6666 19.5668 18.4305C19.9745 18.2228 20.3064 17.8913 20.5141 17.4836C20.7502 17.0202 20.7502 16.4134 20.7502 15.2L20.7502 6.9667C20.7502 5.75325 20.7502 5.14653 20.5141 4.68305C20.3064 4.27537 19.9745 3.94389 19.5668 3.73616C19.1033 3.50001 18.4968 3.50001 17.2833 3.50001H1.25ZM1.25 3.50001C1.25 2.30339 2.22005 1.33334 3.41667 1.33334H7.39739C7.92734 1.33334 8.19262 1.33334 8.44198 1.39321C8.66306 1.44628 8.87434 1.53385 9.0682 1.65264C9.28685 1.78663 9.47423 1.97398 9.84896 2.3487L11.0003 3.50001" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                {/* <input className='upload-btn2' type='file' accept="image/*" name='uploaded-image'/> */}
             </div>
         </div>
         <QrReader className="camera-frame" onResult={(result, error) => {
