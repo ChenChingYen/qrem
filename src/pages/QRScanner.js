@@ -50,8 +50,9 @@ function QRScanner({onFileSelect}){
         </div>
         <QrReader 
         className="camera-frame"
+        key="environment"
+        constraints={{ facingMode: 'environment' }}
         delay={ 300 }
-        constraints={ {facingMode: 'environment'} }
         onResult={(result, error) => {
           if (!!result) {
             setData(result?.text);
