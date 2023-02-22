@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/qrem/static/css/main.7365f491.css",
+    "main.js": "/qrem/static/js/main.29ed8aa6.js",
+    "index.html": "/qrem/index.html",
+    "main.7365f491.css.map": "/qrem/static/css/main.7365f491.css.map",
+    "main.29ed8aa6.js.map": "/qrem/static/js/main.29ed8aa6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7365f491.css",
+    "static/js/main.29ed8aa6.js"
+  ]
+}
