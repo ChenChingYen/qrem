@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/qrem/static/css/main.f038ae60.css",
-    "main.js": "/qrem/static/js/main.f672195a.js",
+    "main.js": "/qrem/static/js/main.93e26e0b.js",
     "index.html": "/qrem/index.html",
     "main.f038ae60.css.map": "/qrem/static/css/main.f038ae60.css.map",
-    "main.f672195a.js.map": "/qrem/static/js/main.f672195a.js.map"
+    "main.93e26e0b.js.map": "/qrem/static/js/main.93e26e0b.js.map"
   },
   "entrypoints": [
     "static/css/main.f038ae60.css",
-    "static/js/main.f672195a.js"
+    "static/js/main.93e26e0b.js"
   ]
 }
