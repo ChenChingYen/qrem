@@ -48,7 +48,10 @@ function QRScanner({onFileSelect}){
                 </button>
             </div>
         </div>
-        <QrReader className="camera-frame" onResult={(result, error) => {
+        <QrReader 
+        className="camera-frame" 
+        facingMode = 'rear'
+        onResult={(result, error) => {
           if (!!result) {
             setData(result?.text);
           }
