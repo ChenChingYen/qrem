@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/qrem/static/css/main.f038ae60.css",
-    "main.js": "/qrem/static/js/main.93e26e0b.js",
+    "main.css": "/qrem/static/css/main.666e6c3f.css",
+    "main.js": "/qrem/static/js/main.c6e76637.js",
     "index.html": "/qrem/index.html",
-    "main.f038ae60.css.map": "/qrem/static/css/main.f038ae60.css.map",
-    "main.93e26e0b.js.map": "/qrem/static/js/main.93e26e0b.js.map"
+    "main.666e6c3f.css.map": "/qrem/static/css/main.666e6c3f.css.map",
+    "main.c6e76637.js.map": "/qrem/static/js/main.c6e76637.js.map"
   },
   "entrypoints": [
-    "static/css/main.f038ae60.css",
-    "static/js/main.93e26e0b.js"
+    "static/css/main.666e6c3f.css",
+    "static/js/main.c6e76637.js"
   ]
 }
