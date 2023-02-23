@@ -1,9 +1,9 @@
-// import React from "react";
 import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 import './styles.css';
+import jsQR from 'jsqr';
 
-function QRScanner({onFileSelect}){
+function QRScanner(){
     const [data, setData] = useState('');
     const copyText = () => {
         navigator.clipboard.writeText(data);
@@ -13,11 +13,41 @@ function QRScanner({onFileSelect}){
     const toggleModal = () => {
         setModal(!modal);
     }
+    const [errorMessage, setErrorMessage] = useState(false);
+    const openErrorMessage = () => {
+        setErrorMessage(true);
+    }
+    const closeErrorMessage = () => {
+        setErrorMessage(false);
+    }
     const handleFileInput = (e) => {
         const file = e.target.files[0];
         console.log(file);
+        // decoder
+        decodeQRCode(file);
         setModal(!modal);
     }
+    // decoder function
+    const decodeQRCode = (file) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const qrCode = jsQR(imageData.data, imageData.width, imageData.height);
+            if (qrCode) {
+                setData(qrCode.data)
+                closeErrorMessage();
+            } else {
+                openErrorMessage();
+                setData('');
+            }
+        };
+        img.src = URL.createObjectURL(file);
+      };
     return (
         <>
         {modal&&
@@ -48,19 +78,24 @@ function QRScanner({onFileSelect}){
                 </button>
             </div>
         </div>
+        {errorMessage&&
+            <div className='error-message'>Error: No QR code found in the uploaded image.</div>
+        }
         <QrReader 
         className="camera-frame"
-        key="environment"
-        constraints={{ facingMode: 'environment' }}
+        key="rear"
+        constraints={{ facingMode: 'rear', aspectRatio: 1 }}
+        // noiseSuppression={true}
         delay={ 300 }
         onResult={(result, error) => {
           if (!!result) {
             setData(result?.text);
           }
           if (!!error) {
-            console.info(error);
+            // console.info(error);
           }
-        }}/>
+        }}
+        />
         <div className='bottom'>
             <span className='data-wrapper'>
                 {data&&<a href={data} target='_blank'>{data}</a>}

@@ -10,9 +10,9 @@ function QRGenerator(){
 			width: 330,
 			margin: 2,
 			color: {
-				dark: '#837dd1',
-				// light: '#EEEEEEFF'
-                light: '#02001E'
+				dark: '#02001E',
+				// light: '#EEEEEEFF' #837dd1
+                light: '#cccaeb'
 			}
 		}, (err, url) => {
 			if (err) return console.error(err)

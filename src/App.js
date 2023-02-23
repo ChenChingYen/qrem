@@ -16,11 +16,11 @@ function App() {
       setTouchEnd(e.targetTouches[0].clientX);
   }
   function handleTouchEnd() {
-      if (touchStart - touchEnd > 150) {
+      if (touchStart - touchEnd > 200) {
           navigate("./pages/QRGenerator");
           // alert('you swiped left');
       }
-      if (touchStart - touchEnd < -150) {
+      if (touchStart - touchEnd < -200) {
         navigate("./pages/QRScanner");
           // alert('you swiped right');
       }
@@ -56,7 +56,11 @@ function App() {
         <span><NavLink style={activeNavStyle} to='./pages/QRScanner'>Reader</NavLink></span>
         <span><NavLink style={activeNavStyle} to='./pages/QRGenerator' replace>Generator</NavLink></span>
       </nav>
-      <div className='content'>
+      <div className='content'
+        onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
+        onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)}
+        onTouchEnd={() => handleTouchEnd()}
+      >
         <Routes>
           <Route path='/pages/QRScanner' element={<QRScanner/>}/>
           <Route path='/pages/QRGenerator' element={<QRGenerator/>}/>
