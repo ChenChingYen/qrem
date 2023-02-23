@@ -64,7 +64,6 @@ function QRScanner(){
                 <div className="modal-content">
                     <input type='file' accept="image/*" name='uploaded-image' onChange={handleFileInput}/>
                 </div>
-                <p>Bruh, I don't know which react library can be used to read QR code from images. I have accepted fate. Whatever</p>
             </div>
         </div>
         }
@@ -83,8 +82,8 @@ function QRScanner(){
         }
         <QrReader 
         className="camera-frame"
-        key="rear"
-        constraints={{ facingMode: 'rear', aspectRatio: 1 }}
+        key="environment"
+        constraints={{ facingMode: 'environment', aspectRatio: 1 }}
         // noiseSuppression={true}
         delay={ 300 }
         onResult={(result, error) => {
